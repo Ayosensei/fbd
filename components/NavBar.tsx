@@ -1,7 +1,5 @@
 import Link from 'next/link';
-// We keep Discord and Telegram from the standard set
-import { FaDiscord, FaTelegramPlane } from 'react-icons/fa';
-// We import the specific X logo from the 'fa6' (FontAwesome 6) set
+import { FaTelegramPlane } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 export default function Navbar() {
@@ -15,22 +13,18 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6">
           <a 
-            href="#" 
+            href="https://x.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
             aria-label="Follow on X" 
             className="text-gray-400 transition hover:text-purple-500"
           >
-            {/* The new X Logo */}
             <FaXTwitter size={20} />
           </a>
           <a 
-            href="#" 
-            aria-label="Join our Discord"
-            className="text-gray-400 transition hover:text-purple-500"
-          >
-            <FaDiscord size={20} />
-          </a>
-          <a 
-            href="#" 
+            href="https://telegram.org" 
+            target="_blank" 
+            rel="noopener noreferrer"
             aria-label="Join our Telegram"
             className="text-gray-400 transition hover:text-purple-500"
           >

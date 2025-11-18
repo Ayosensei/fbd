@@ -1,6 +1,6 @@
 import HeroScene from "@/components/HeroScene";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
-import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const testimonials = [
@@ -16,21 +16,14 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
       
-      {/* --- BACKGROUND LAYER (Grid & Glows) --- */}
-      {/* Fixed position ensures it stays behind everything and doesn't move */}
+      {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* The Grid Pattern */}
         <div className="absolute inset-0 bg-grid-pattern opacity-40" />
-        
-        {/* Glow Effect 1: Top Left Purple */}
         <div className="absolute -left-20 -top-20 h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-[100px]" />
-        {/* Glow Effect 2: Middle Right Blue/Purple */}
         <div className="absolute top-1/2 -right-20 h-[600px] w-[600px] rounded-full bg-purple-900/20 blur-[120px]" />
       </div>
 
-
       {/* --- CONTENT LAYER --- */}
-      {/* We use 'relative z-10' on containers to ensure they sit ON TOP of the background */}
 
       {/* Hero Section */}
       <div className="relative z-10 h-screen w-full">
@@ -46,10 +39,15 @@ export default function Home() {
             A Web3 collective building, hunting, and collaborating.
           </p>
           <div className="mt-10 flex gap-6">
-            {/* CHANGED: Blue button to Purple */}
-            <button className="rounded-lg bg-purple-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-purple-500">
-              Join Discord
-            </button>
+            {/* CHANGED: Link to X instead of Discord Button */}
+            <a 
+              href="https://x.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="rounded-lg bg-purple-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-purple-500"
+            >
+              Follow on X
+            </a>
             <button className="rounded-lg border border-gray-600 bg-black/50 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition hover:border-white">
               View Our Work
             </button>
@@ -59,26 +57,16 @@ export default function Home() {
 
       {/* STATS STRIP */}
       <div className="relative z-10 border-y border-gray-800 bg-black/60 backdrop-blur-md">
-        {/* CHANGED: max-w-5xl to max-w-7xl */}
-        <div className="container mx-auto flex max-w-7xl flex-wrap justify-center gap-12 px-4 py-12 md:justify-between">
+        <div className="container mx-auto flex max-w-7xl flex-wrap justify-center gap-12 px-4 py-12">
           <div className="text-center">
             <p className="text-4xl font-bold text-white">100+</p>
-            <p className="text-sm uppercase tracking-wider text-gray-500">Members</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl font-bold text-white">50+</p>
-            <p className="text-sm uppercase tracking-wider text-gray-500">Projects Shipped</p>
-          </div>
-          <div className="text-center">
-            <p className="text-4xl font-bold text-white">24/7</p>
-            <p className="text-sm uppercase tracking-wider text-gray-500">Alpha Calls</p>
+            <p className="text-sm uppercase tracking-wider text-gray-500">Collabs</p>
           </div>
         </div>
       </div>
 
       {/* "What We Do" Section */}
       <section className="relative z-10 py-20">
-        {/* CHANGED: max-w-5xl to max-w-7xl */}
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-4 text-center text-4xl font-bold">
             What We Do
@@ -86,51 +74,63 @@ export default function Home() {
           <p className="mb-12 text-center text-lg text-gray-400">
             We operate at the intersection of talent and opportunity.
           </p>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm">
-              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Growth strategizing and event organizing </h3>
+          
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            
+            {/* Tile 1 */}
+            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Growth Strategizing & Events</h3>
               <p className="text-gray-400">
-                We actively source and secure top-tier opportunities for our
-                members, from bounties to full-time roles.
+                From strategic partnerships to high-impact side events, we architect the momentum your protocol needs to scale effectively.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm">
-              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Graphics design</h3>
+
+            {/* Tile 2 */}
+            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Community Building</h3>
               <p className="text-gray-400">
-                Our team builds and contributes to cutting-edge projects,
-                from new DeFi protocols to NFT launches.
+                 We deploy veteran moderators and engagement strategies to turn passive holders into active, loyal evangelists.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm">
-              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Community building and managing</h3>
+
+            {/* Tile 3 */}
+            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Graphics Design</h3>
               <p className="text-gray-400">
-                Sharing vetted calls, in-depth market analysis, and investment
-                insights for our community.
+                High-fidelity branding and viral assets. We craft the visual language that makes your project impossible to ignore.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm">
-              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Space hosting and AMAs</h3>
+
+            {/* Tile 4 */}
+            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Website Development</h3>
               <p className="text-gray-400">
-                Sharing vetted calls, in-depth market analysis, and investment
-                insights for our community.
+                Immersive, responsive, and secure Web3 interfaces that connect users directly to the blockchain.
               </p>
             </div>
-            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm">
-              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Space hosting and AMAs</h3>
+
+            {/* Tile 5 */}
+            <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Space Hosting & AMAs</h3>
               <p className="text-gray-400">
-                Sharing vetted calls, in-depth market analysis, and investment
-                insights for our community.
+                We host professional, high-traffic audio stages that amplify your narrative and connect you directly with investors.
               </p>
             </div>
             
+            {/* Tile 6 */}
+             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
+              <h3 className="mb-3 text-2xl font-semibold text-purple-400">Raids and Shills</h3>
+              <p className="text-gray-400">
+                High-energy community mobilization. We direct concentrated engagement to take over timelines, break algorithms, and force your narrative into the spotlight.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
       <section className="relative z-10 py-20">
-        
-        {/* PART 1: Header Text (Kept inside container so it stays centered) */}
         <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-4 text-center text-4xl font-bold">
             Word on the Chain
@@ -139,15 +139,12 @@ export default function Home() {
             Don't just take our word for it.
           </p>
         </div>
-
-        {/* PART 2: The Carousel (Moved OUTSIDE the container to span full width) */}
         <div className="w-full">
            <TestimonialCarousel reviews={testimonials} />
         </div>
-
       </section>
 
-      {/* Join the Community Section (Footer) */}
+      {/* Footer */}
       <section className="relative z-10 border-t border-gray-800 bg-black/80 py-20 backdrop-blur-md">
         <div className="container mx-auto flex max-w-7xl flex-col items-center px-4 text-center">
           <h2 className="mb-4 text-center text-4xl font-bold">
@@ -159,22 +156,19 @@ export default function Home() {
           
           <div className="flex gap-8">
             <a 
-              href="#" 
+              href="https://x.com" 
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Follow on X" 
               className="text-gray-500 transition hover:scale-110 hover:text-purple-500"
             >
-              {/* The new X Logo */}
               <FaXTwitter size={32} />
             </a>
+            {/* REMOVED: Discord Icon */}
             <a 
-              href="#" 
-              aria-label="Join our Discord"
-              className="text-gray-500 transition hover:scale-110 hover:text-purple-500"
-            >
-              <FaDiscord size={32} />
-            </a>
-            <a 
-              href="#" 
+              href="https://telegram.org" 
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Join our Telegram"
               className="text-gray-500 transition hover:scale-110 hover:text-purple-500"
             >
