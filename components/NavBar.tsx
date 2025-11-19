@@ -22,7 +22,7 @@ export default function Navbar() {
             <FaXTwitter size={20} />
           </a>
           <a 
-            href="https://telegram.org" 
+            href="https://t.me/wedoitalllynizy" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Join our Telegram"

@@ -14,32 +14,39 @@ type PropType = {
 };
 
 const TestimonialCarousel: React.FC<PropType> = ({ reviews }) => {
-  // CHANGED: Added 'loop: true' and align: 'center' for a better spotlight effect
+  // align: 'center' keeps the focused image in the middle
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' });
   
   const [scrollProgress, setScrollProgress] = useState(0);
-  // NEW: Track the currently selected index
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  // Update the progress bar
   const onScroll = useCallback((emblaApi: EmblaCarouselType) => {
     const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
     setScrollProgress(progress * 100);
   }, []);
 
-  // NEW: Update state when a new slide is selected
+  // Update the selected index (for the scaling effect)
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
     setSelectedIndex(emblaApi.selectedScrollSnap());
   }, []);
+
+  // NEW: Function to scroll to a specific slide when clicked
+  const onSlideClick = useCallback((index: number) => {
+    if (emblaApi) {
+      emblaApi.scrollTo(index);
+    }
+  }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
 
     onScroll(emblaApi);
-    onSelect(emblaApi); // Set initial selection
+    onSelect(emblaApi); 
     
     emblaApi.on('reInit', onScroll);
     emblaApi.on('scroll', onScroll);
-    emblaApi.on('select', onSelect); // Listen for slide changes
+    emblaApi.on('select', onSelect);
   }, [emblaApi, onScroll, onSelect]);
 
   return (
@@ -47,7 +54,6 @@ const TestimonialCarousel: React.FC<PropType> = ({ reviews }) => {
       <div className="overflow-hidden py-10" ref={emblaRef}>
         <div className="flex touch-pan-y mb-8">
           {reviews.map((review, index) => {
-            // Check if this specific slide is the selected one
             const isSelected = index === selectedIndex;
 
             return (
@@ -55,14 +61,13 @@ const TestimonialCarousel: React.FC<PropType> = ({ reviews }) => {
                 className="relative min-w-0 flex-shrink-0 flex-grow-0 basis-[85%] pl-4 md:basis-1/2 lg:basis-1/4" 
                 key={index}
               >
-                {/* CONDITIONAL STYLING:
-                   - transition-all duration-500: Makes the size change smooth
-                   - isSelected: Scale up (1.1), add purple border, add shadow, full opacity
-                   - !isSelected: Scale down (0.9), lower opacity
+                {/* ADDED: onClick handler to scroll to this slide 
+                    ADDED: cursor-pointer to indicate interactivity
                 */}
                 <div 
+                  onClick={() => onSlideClick(index)}
                   className={`
-                    h-full rounded-lg border bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-500 ease-in-out
+                    h-full rounded-lg border bg-gray-900/50 p-6 backdrop-blur-sm transition-all duration-500 ease-in-out cursor-pointer
                     ${isSelected 
                       ? 'scale-110 border-purple-500 opacity-100 shadow-xl shadow-purple-500/20 z-10' 
                       : 'scale-90 border-gray-800 opacity-50 hover:opacity-80 hover:border-gray-600'
@@ -74,7 +79,7 @@ const TestimonialCarousel: React.FC<PropType> = ({ reviews }) => {
                       src={review.imageUrl}
                       alt={`Testimonial review ${index + 1}`}
                       fill
-                      className="object-cover"
+                      className="object-cover pointer-events-none" // Prevents image drag from interfering with click
                     />
                   </div>
                 </div>

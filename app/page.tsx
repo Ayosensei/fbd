@@ -148,7 +148,7 @@ export default function Home() {
       <section className="relative z-10 border-t border-gray-800 bg-black/80 py-20 backdrop-blur-md">
         <div className="container mx-auto flex max-w-7xl flex-col items-center px-4 text-center">
           <h2 className="mb-4 text-center text-4xl font-bold">
-            Join the Collective
+            Get in Touch with Us
           </h2>
           <p className="mb-8 text-center text-lg text-gray-400">
             Follow our journey and find your place in our community.
@@ -164,9 +164,8 @@ export default function Home() {
             >
               <FaXTwitter size={32} />
             </a>
-            {/* REMOVED: Discord Icon */}
             <a 
-              href="https://telegram.org" 
+              href="https://t.me/wedoitalllynizy" 
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Join our Telegram"
