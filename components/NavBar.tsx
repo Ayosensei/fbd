@@ -13,7 +13,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-6">
           <a 
-            href="https://x.com" 
+            href="https://x.com/whale_stats" 
             target="_blank" 
             rel="noopener noreferrer"
             aria-label="Follow on X" 

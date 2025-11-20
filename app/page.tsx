@@ -5,20 +5,21 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const testimonials = [
   { imageUrl: "/reviews/cshield.png" },
+  { imageUrl: "/reviews/review1.png" },
   { imageUrl: "/reviews/review2.png" },
   { imageUrl: "/reviews/review3.png" },
   { imageUrl: "/reviews/review4.png" },
-  { imageUrl: "/reviews/review5.jpg" },
-  { imageUrl: "/reviews/review6.jpg" },
+  { imageUrl: "/reviews/review5.png" },
+  { imageUrl: "/reviews/review6.png" },
 ];
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full overflow-hidden">
+    <main className="relative min-h-screen w-full overflow-hidden bg-black text-white">
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+        <div className="absolute inset-0 bg-grid-pattern opacity-20" />
         <div className="absolute -left-20 -top-20 h-[500px] w-[500px] rounded-full bg-purple-600/20 blur-[100px]" />
         <div className="absolute top-1/2 -right-20 h-[600px] w-[600px] rounded-full bg-purple-900/20 blur-[120px]" />
       </div>
@@ -32,23 +33,22 @@ export default function Home() {
         </div>
         
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4">
-          <h1 className="text-6xl font-bold md:text-8xl lg:text-9xl">
+          <h1 className="text-6xl font-bold md:text-8xl lg:text-9xl tracking-tighter">
             For Better Days
           </h1>
-          <p className="mt-6 text-xl text-gray-300 md:text-2xl">
+          <p className="mt-6 text-xl text-gray-300 md:text-2xl max-w-2xl">
             A Web3 collective building, hunting, and collaborating.
           </p>
-          <div className="mt-10 flex gap-6">
-            {/* CHANGED: Link to X instead of Discord Button */}
+          <div className="mt-10 flex flex-wrap justify-center gap-6">
             <a 
               href="https://x.com" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="rounded-lg bg-purple-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-purple-500"
+              className="rounded-lg bg-purple-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-purple-500 hover:scale-105"
             >
               Follow on X
             </a>
-            <button className="rounded-lg border border-gray-600 bg-black/50 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition hover:border-white">
+            <button className="rounded-lg border border-gray-600 bg-black/50 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/10">
               View Our Work
             </button>
           </div>
@@ -76,7 +76,6 @@ export default function Home() {
           </p>
           
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            
             {/* Tile 1 */}
             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Growth Strategizing & Events</h3>
@@ -84,7 +83,6 @@ export default function Home() {
                 From strategic partnerships to high-impact side events, we architect the momentum your protocol needs to scale effectively.
               </p>
             </div>
-
             {/* Tile 2 */}
             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Community Building</h3>
@@ -92,7 +90,6 @@ export default function Home() {
                  We deploy veteran moderators and engagement strategies to turn passive holders into active, loyal evangelists.
               </p>
             </div>
-
             {/* Tile 3 */}
             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Graphics Design</h3>
@@ -100,7 +97,6 @@ export default function Home() {
                 High-fidelity branding and viral assets. We craft the visual language that makes your project impossible to ignore.
               </p>
             </div>
-
             {/* Tile 4 */}
             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Website Development</h3>
@@ -108,7 +104,6 @@ export default function Home() {
                 Immersive, responsive, and secure Web3 interfaces that connect users directly to the blockchain.
               </p>
             </div>
-
             {/* Tile 5 */}
             <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Space Hosting & AMAs</h3>
@@ -116,7 +111,6 @@ export default function Home() {
                 We host professional, high-traffic audio stages that amplify your narrative and connect you directly with investors.
               </p>
             </div>
-            
             {/* Tile 6 */}
              <div className="rounded-lg border border-gray-800 bg-gray-900/80 p-6 backdrop-blur-sm hover:border-purple-500/50 transition-colors">
               <h3 className="mb-3 text-2xl font-semibold text-purple-400">Raids and Shills</h3>
@@ -124,7 +118,6 @@ export default function Home() {
                 High-energy community mobilization. We direct concentrated engagement to take over timelines, break algorithms, and force your narrative into the spotlight.
               </p>
             </div>
-
           </div>
         </div>
       </section>
@@ -156,7 +149,7 @@ export default function Home() {
           
           <div className="flex gap-8">
             <a 
-              href="https://x.com" 
+              href="https://x.com/whale_stats" 
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Follow on X" 
