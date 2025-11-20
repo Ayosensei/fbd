@@ -41,7 +41,7 @@ export default function Home() {
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-6">
             <a 
-              href="https://x.com" 
+              href="https://x.com/whale_stats" 
               target="_blank" 
               rel="noopener noreferrer"
               className="rounded-lg bg-purple-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-purple-500 hover:scale-105"
@@ -49,7 +49,7 @@ export default function Home() {
               Follow on X
             </a>
             <button className="rounded-lg border border-gray-600 bg-black/50 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition hover:border-white hover:bg-white/10">
-              View Our Work
+              <a href="https://t.me/wedoitalllynizy">View Our Work</a>
             </button>
           </div>
         </div>
